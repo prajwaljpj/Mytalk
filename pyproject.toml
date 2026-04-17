@@ -1,0 +1,111 @@
+# [build-system]
+# requires = ["setuptools>=68", "wheel"]
+# build-backend = "setuptools.build_meta"
+
+[project]
+name = "Mytalk"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "configargparse>=1.7.1",
+    "dearpygui>=2.1.1",
+    "einops>=0.8.1",
+    "face-alignment>=1.4.1",
+    "freqencoder",
+    "fvcore>=0.1.5.post20221221",
+    "imageio-ffmpeg>=0.6.0",
+    "iopath>=0.1.10",
+    "librosa>=0.11.0",
+    "lpips>=0.1.4",
+    "matplotlib>=3.10.8",
+    "mediapipe>=0.10.31",
+    "ninja>=1.13.0",
+    "numba>=0.63.1",
+    "numpy>=2.0.0",
+    "onnxruntime-gpu>=1.23.2",
+    "opencv-python>=4.12.0.88",
+    "packaging>=25.0",
+    "pandas>=2.3.3",
+    "pyaudio>=0.2.14",
+    "pymcubes>=0.1.6",
+    "python-speech-features>=0.6",
+    "pytorch3d",
+    "plyfile>=0.8.1",
+    "resampy>=0.4.3",
+    "rich>=12.1,<14.0",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.15.3",
+    "setuptools>=80.9.0",
+    "soundfile>=0.13.1",
+    "tensorboardx>=2.6.4",
+    "torch==2.9.1",
+    "torch-ema>=0.3",
+    "torchaudio==2.9.1",
+    "torchvision==0.24.1",
+    "tqdm>=4.67.1",
+    "transformers>=4.57.3",
+    "trimesh>=4.11.0",
+    "shencoder",
+    "gridencoder",
+    "raymarching-face",
+    "simple-knn",
+    "diff-gaussian-rasterization",
+]
+
+[tool.uv]
+concurrent-builds=8
+# no-install-project = true
+# no-build-isolation-package = ["freqencoder", "pytorch3d", "shencoder", "gridencoder", "raymarching-face", "simple-knn", "diff-gaussian-rasterization"] 
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+pytorch3d = { git = "https://github.com/facebookresearch/pytorch3d.git" }
+freqencoder = { path = "./freqencoder" }
+shencoder = { path = "./shencoder" }
+gridencoder = { path = "./gridencoder" }
+raymarching-face = { path = "./raymarching" }
+simple-knn = { path = "./submodules/simple-knn" }
+diff-gaussian-rasterization = { path = "./submodules/diff-gaussian-rasterization" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[dependency-groups]
+dev = []
+segface = [
+    "accelerate>=1.12.0",
+    "easydict>=1.13",
+    "ftfy>=6.3.1",
+    "mat73>=0.65",
+    "medpy>=0.5.2",
+    "mmsegmentation>=1.2.2",
+    "networkx>=3.4.2",
+    "ptflops>=0.7.5",
+    "python-dotenv>=1.2.1",
+    "scikit-image>=0.25.2",
+    "sympy>=1.14.0",
+    "tabulate>=0.9.0",
+    "tifffile>=2025.5.10",
+    "timm>=1.0.24",
+]
+
+[tool.uv.extra-build-dependencies]
+freqencoder = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+gridencoder = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+shencoder = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+raymarching-face = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+pytorch3d = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+simple-knn = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]
+diff-gaussian-rasterization = ["setuptools>=80.9.0,<81", "torch==2.9.1", "numpy>=2.2.6", "ninja>=1.13.0"]

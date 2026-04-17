@@ -1,0 +1,36 @@
+/data/
+/output/
+*__pycache__/
+*build/
+*egg-info/
+
+# Python
+# Virtual Environments
+venv/
+.venv/
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build systems (CMake)
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Makefile
+build/

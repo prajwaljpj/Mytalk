@@ -34,3 +34,10 @@ install_manifest.txt
 compile_commands.json
 Makefile
 build/
+/data_utils/face_tracking/3DMM/01_MorphableModel.mat
+/data_utils/face_tracking/3DMM/topology_info.npy
+/data_utils/face_tracking/3DMM/3DMM_info.npy
+/data_utils/face_tracking/3DMM/exp_info.npy
+/data_utils/face_tracking/3DMM/keys_info.npy
+/data_utils/face_tracking/3DMM/sub_mesh.obj
+/data_utils/SegFace/weights/*

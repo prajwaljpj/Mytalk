@@ -1,6 +1,5 @@
 # ref: https://github.com/ShunyuYao/DFA-NeRF
-from numpy.core.numeric import require
-from numpy.lib.function_base import quantile
+from numpy import require, quantile
 import torch
 import numpy as np
 from facemodel import Face_3DMM
